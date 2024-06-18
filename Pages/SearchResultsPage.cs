@@ -27,7 +27,7 @@ namespace PlaywrightSpecFlowPOM.Pages
             await _user.WaitForLoadStateAsync();
 
             //Assert the page url
-            await Assertions.Expect(_user).ToHaveURLAsync($"https://duckduckgo.com/?va=a&t=hq&q=Playwright&ia=web");
+            await Assertions.Expect(_user).ToHaveURLAsync($"https://duckduckgo.com/?t=h_&q=Playwright&ia=web");
 
             //Assert the search input has the search term
             await Assertions.Expect(SearchInput).ToHaveValueAsync(searchTerm);
