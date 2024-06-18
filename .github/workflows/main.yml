@@ -13,7 +13,7 @@ jobs:
     - uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '7.0.x'
-    - uses: actions/cryptic-wizard/run-specflow-tests@v1.3.3
+    - uses: cryptic-wizard/run-specflow-tests@v1.3.3
       with:
         test-assembly-path: PlaywrightSpecFlowPOM/bin/Release/net7.0
         test-assembly-dll: PlaywrightSpecFlowPOM.dll
