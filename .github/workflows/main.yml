@@ -15,6 +15,6 @@ jobs:
         dotnet-version: '6.0.x'
     - uses: cryptic-wizard/run-specflow-tests@v1.3.3
       with:
-        test-assembly-path: PlaywrightSpecFlowPOM/bin/Release/net7.0
+        test-assembly-path: PlaywrightSpecFlowPOM/bin/Release/net6.0
         test-assembly-dll: PlaywrightSpecFlowPOM.dll
         output-html: MyTestResults.html
