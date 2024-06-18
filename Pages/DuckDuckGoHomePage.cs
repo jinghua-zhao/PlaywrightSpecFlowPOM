@@ -8,6 +8,7 @@ namespace PlaywrightSpecFlowPOM.Pages
         // Constructors
         private readonly IPage _user;
 
+        
         public DuckDuckGoHomePage(Hooks.Hooks hooks)
         {
             _user = hooks.User;
