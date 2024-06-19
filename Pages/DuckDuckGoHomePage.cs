@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using Microsoft.Playwright;
+﻿using Microsoft.Playwright;
 
 namespace PlaywrightSpecFlowPOM.Pages
 {
@@ -34,7 +33,7 @@ namespace PlaywrightSpecFlowPOM.Pages
         public async Task SearchAndEnter(string searchTerm)
         {
             //Type the search term into the search input
-            await SearchInput.TypeAsync(searchTerm);
+            await SearchInput.FillAsync(searchTerm);
 
             //Assert that the search input has the text entered
             var searchInputInnerText = await SearchInput.InputValueAsync();
