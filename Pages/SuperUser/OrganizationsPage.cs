@@ -14,6 +14,7 @@ namespace PlaywrightSpecFlowPOM.Pages.SuperUser
         }
 
         // Selectors
+        private ILocator AddOrganizationButton => _user.GetByRole(AriaRole.Link, new() { Name = "Add Organization" });
         private ILocator SearchBy => _user.GetByLabel("Search");
         private ILocator SearchInput => _user.Locator("#SearchValue");
         private ILocator SearchButton => _user.GetByRole(AriaRole.Button, new() { Name = "Search" });
@@ -21,17 +22,22 @@ namespace PlaywrightSpecFlowPOM.Pages.SuperUser
         private ILocator SearchResult => _user.GetByRole(AriaRole.Cell, new() { Name = "Motor Vehicles, Department of" });
         private ILocator FirstSearchResult => _user.Locator("table#users tr:first-child td:first-child");
 
-        //Actions and Assertions
+        // Actions and Assertions
         public async Task AssertPageContent()
         {
             //Assert that the correct URL has been reached
             await Assertions.Expect(_user).ToHaveURLAsync("https://localhost:44341/SuperUser/Organizations");
 
-            //Assert that the search form elements are visible
+            await Assertions.Expect(AddOrganizationButton).ToBeVisibleAsync();
             await Assertions.Expect(SearchBy).ToBeVisibleAsync();
             await Assertions.Expect(SearchInput).ToBeVisibleAsync();
             await Assertions.Expect(SearchButton).ToBeVisibleAsync();
             await Assertions.Expect(SortBy).ToBeVisibleAsync();
+        }
+
+        public async Task ClickAddOrganzationButton()
+        {
+            await AddOrganizationButton.ClickAsync();
         }
 
         public async Task SearchAndEnter(string searchTerm)

@@ -8,15 +8,17 @@ public class OrganizationsSearchSteps
 {
     private readonly IPage _user;
     private readonly OrganizationsPage _organizationsPage;
+    private readonly AddOrganizationsPage _addOrganizationsPage;
 
-    public OrganizationsSearchSteps(Hooks.Hooks hooks, OrganizationsPage organizationsPage)
+    public OrganizationsSearchSteps(Hooks.Hooks hooks, OrganizationsPage organizationsPage, AddOrganizationsPage addOrganizationsPage)
     {
         _user = hooks.User;
         _organizationsPage = organizationsPage;
+        _addOrganizationsPage = addOrganizationsPage;
     }
 
     [Given(@"the super user is on the Organizations page")]
-    public async Task GivenTheUserIsOnTheDuckDuckGoHomepage()
+    public async Task GivenTheUserIsOnTheOrganizationsPage()
     {
         await _user.GotoAsync("https://localhost:44341/Security/LogOn?ReturnUrl=%2FSecurity%2FLogOn");
         await _user.GetByLabel("Email *").ClickAsync();
@@ -43,5 +45,29 @@ public class OrganizationsSearchSteps
     {
         //Assert the page content
         await _organizationsPage.AssertSearchResult(searchTerm);
+    }
+
+    [When("the super user clicks the Add Organization button")]
+    public async Task WhenTheSuperUserClicksTheAddOrganizationButton()
+    {
+        await _organizationsPage.ClickAddOrganzationButton();
+    }
+
+    [Then("the Add Organization page should be opened")]
+    public async Task ThenTheAddOrganizationPageShouldBeOpened()
+    {
+        await _addOrganizationsPage.AssertPageContent();
+    }
+
+    [When("the super user clicks the Back button")]
+    public async Task WhenTheSuperUserClicksTheBackButton()
+    {
+        await _addOrganizationsPage.ClickBackButton();
+    }
+
+    [Then("the Organizations page should be opened")]
+    public async Task ThenTheOrganizationsPageShouldBeOpened()
+    {
+        await _organizationsPage.AssertPageContent();
     }
 }

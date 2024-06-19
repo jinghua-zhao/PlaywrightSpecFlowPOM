@@ -15,7 +15,8 @@ namespace PlaywrightSpecFlowPOM.Hooks
             //Initialise a browser - 'Chromium' can be changed to 'Firefox' or 'Webkit'
             var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
-                Headless = false // -> Use this option to be able to see your test running
+                Headless = false, // -> Use this option to be able to see your test running
+                SlowMo = 1500
             });
             //Setup a browser context
             var context1 = await browser.NewContextAsync();
