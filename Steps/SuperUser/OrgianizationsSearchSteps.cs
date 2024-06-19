@@ -4,13 +4,13 @@ using PlaywrightSpecFlowPOM.Pages.SuperUser;
 namespace PlaywrightSpecFlowPOM.Steps;
 
 [Binding]
-public class OrganizationsSearchSteps
+public class OrganizationsSteps
 {
     private readonly IPage _user;
     private readonly OrganizationsPage _organizationsPage;
     private readonly AddOrganizationsPage _addOrganizationsPage;
 
-    public OrganizationsSearchSteps(Hooks.Hooks hooks, OrganizationsPage organizationsPage, AddOrganizationsPage addOrganizationsPage)
+    public OrganizationsSteps(Hooks.Hooks hooks, OrganizationsPage organizationsPage, AddOrganizationsPage addOrganizationsPage)
     {
         _user = hooks.User;
         _organizationsPage = organizationsPage;
