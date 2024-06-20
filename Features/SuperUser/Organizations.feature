@@ -1,4 +1,4 @@
-﻿Feature: Organizations Page
+﻿Feature: Organizations page
 	Search and add organization as super user
 
 Scenario: Search with keyword of Motor

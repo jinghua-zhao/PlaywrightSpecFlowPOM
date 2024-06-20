@@ -7,7 +7,6 @@ namespace PlaywrightSpecFlowPOM.Pages.SuperUser
         // Constructors
         private readonly IPage _user;
 
-
         public OrganizationsPage(Hooks.Hooks hooks)
         {
             _user = hooks.User;
@@ -27,6 +26,9 @@ namespace PlaywrightSpecFlowPOM.Pages.SuperUser
         {
             //Assert that the correct URL has been reached
             await Assertions.Expect(_user).ToHaveURLAsync("https://localhost:44341/SuperUser/Organizations");
+
+            var title = await _user.TitleAsync();
+            title.Should().Be("Organizations");
 
             await Assertions.Expect(AddOrganizationButton).ToBeVisibleAsync();
             await Assertions.Expect(SearchBy).ToBeVisibleAsync();
