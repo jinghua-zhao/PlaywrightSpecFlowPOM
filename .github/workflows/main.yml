@@ -27,3 +27,5 @@ jobs:
       with:
         name: My Test Results
         path: MyTestResults.html
+    - name: Output artifact URL
+      run:  echo 'Artifact URL is ${{ steps.artifact-upload-step.outputs.artifact-url }}'
