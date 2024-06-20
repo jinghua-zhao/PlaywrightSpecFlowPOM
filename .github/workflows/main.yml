@@ -33,4 +33,4 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
     - name: Output artifact URL
-      run: "Artifact URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}#artifacts"
+      run: "Artifact URL: https://github.com/${{ github.run_id }}/actions/runs/${{ steps.artifact-upload-step.outputs.artifact-id }}#artifacts"
