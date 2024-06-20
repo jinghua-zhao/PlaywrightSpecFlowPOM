@@ -21,7 +21,6 @@ namespace PlaywrightSpecFlowPOM.Steps
 
             //Assert the first search result (hence the index of 0)
             await _searchResultsPage.AssertSearchResultAtIndex(searchTerm, 0, expectedLink);
-            false.Should().BeTrue();
         }
     }
 }
