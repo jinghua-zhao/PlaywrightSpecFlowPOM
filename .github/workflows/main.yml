@@ -15,11 +15,15 @@ jobs:
         dotnet-version: '6.0.x'
     - run: dotnet build
     - name: Ensure browsers are installed
-      run: pwsh bin/Debug/net6.0/playwright.ps1 install --with-deps     
+      run: pwsh bin/Debug/net6.0/playwright.ps1 install --with-deps  
+    - name: Ensure LivingDoc CLI is installed
+      run: dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI  
     - name: Run your tests
-      run: dotnet test       
-    - uses: cryptic-wizard/run-specflow-tests@v1.3.3
+      run: dotnet test  
+    - name: GenerateLivingSpec
+      run: livingdoc test-assembly bin/Debug/net6.0/PlaywrightSpecFlowPOM.dll -t bin/Debug/net6.0/TestExecution.json -o MyTestResults.html	  
+    - name: Upload LivingDoc report
+      uses: actions/upload-artifact@v2
       with:
-        test-assembly-path: bin/Debug/net6.0
-        test-assembly-dll: PlaywrightSpecFlowPOM.dll
-        output-html: MyTestResults.html
+        name: My Test Results
+        path: MyTestResults.html
