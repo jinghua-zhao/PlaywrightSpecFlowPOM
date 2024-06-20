@@ -23,6 +23,7 @@ jobs:
     - name: GenerateLivingSpec
       run: livingdoc test-assembly bin/Debug/net6.0/PlaywrightSpecFlowPOM.dll -t bin/Debug/net6.0/TestExecution.json -o MyTestResults.html	  
     - name: Upload LivingDoc report
+      id: artifact-upload-step
       uses: actions/upload-artifact@v2
       with:
         name: My Test Results
