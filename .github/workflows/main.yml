@@ -29,5 +29,4 @@ jobs:
         name: My Test Results
         path: MyTestResults.html
     - name: Output artifact URL
-      run: | 
-        echo "Artifact URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}#artifacts"
+      run: "Artifact URL: https://github.com/${{ github.repository_id }}/actions/runs/${{ github.run_id }}#artifacts"
