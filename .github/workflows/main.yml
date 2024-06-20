@@ -17,7 +17,7 @@ jobs:
     - name: Ensure browsers are installed
       run: pwsh bin/Debug/net6.0/playwright.ps1 install --with-deps  
     - name: Ensure LivingDoc CLI is installed
-      run: dotnet tool install --global LivingDoc.CLI  
+      run: dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI  
     - name: Run your tests
       run: dotnet test  
     - name: GenerateLivingSpec
